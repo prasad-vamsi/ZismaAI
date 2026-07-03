@@ -5,6 +5,7 @@
  */
 import { useEffect, useRef } from "react";
 import { Linkedin, Mail, MapPin } from "lucide-react";
+import CareerTimeline from "@/components/CareerTimeline";
 
 export default function About() {
   const sectionRef = useRef<HTMLElement>(null);
@@ -111,7 +112,7 @@ export default function About() {
               </p>
               <p>
                 Currently serving as Lead AI Forward Deployed Engineer at Erie Insurance,
-                previously at MondeeAI (San Francisco) and Mastercard (Bangalore), he brings
+                previously at MondeeAI (San Francisco), Mastercard, Verizon, and JP Morgan Chase, he brings
                 cross-industry perspective to every engagement — from travel personalization
                 to financial risk modeling to enterprise automation.
               </p>
@@ -123,8 +124,8 @@ export default function About() {
               style={{ transitionDelay: "240ms" }}
             >
               {[
-                { value: "6+", label: "Years of Experience" },
-                { value: "3", label: "Enterprise Platforms Built" },
+                { value: "8+", label: "Years of Experience" },
+                { value: "5", label: "Enterprise Roles" },
                 { value: "AWS · GCP", label: "Cloud Expertise" },
               ].map((item) => (
                 <div
@@ -135,6 +136,14 @@ export default function About() {
                   <div className="section-label">{item.label}</div>
                 </div>
               ))}
+            </div>
+
+            <div className="fade-in-up mt-12" style={{ transitionDelay: "300ms" }}>
+              <h3 className="font-display text-[1.5rem] text-[#0F0F0E] mb-2">Professional Experience</h3>
+              <p className="text-sm text-[#6B7280] mb-6">
+                Latest roles first — from enterprise AI leadership to foundational data engineering.
+              </p>
+              <CareerTimeline />
             </div>
           </div>
         </div>

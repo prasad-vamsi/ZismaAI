@@ -1,24 +1,16 @@
 /**
- * Navigation Component
- * Design: Quiet Authority — transparent on load, white/backdrop-blur on scroll
- * Sticky top nav with smooth transition
+ * Navigation — uses shareable section routes (/about, /contact, etc.)
  */
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link, useLocation } from "wouter";
 import Logo from "./Logo";
-
-const navLinks = [
-  { label: "Solutions", href: "#solutions" },
-  { label: "Architecture", href: "#architecture" },
-  { label: "Expertise", href: "#expertise" },
-  { label: "About", href: "#about" },
-  { label: "Insights", href: "#insights" },
-  { label: "Contact", href: "#contact" },
-];
+import { navLinks, scrollToSection } from "@/lib/nav";
 
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [location, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 40);
@@ -26,11 +18,12 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const handleNavClick = (href: string) => {
+  const handleNavClick = (path: string, sectionId: string) => {
     setMobileOpen(false);
-    const el = document.querySelector(href);
-    if (el) {
-      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (location === path) {
+      scrollToSection(sectionId);
+    } else {
+      setLocation(path);
     }
   };
 
@@ -44,42 +37,31 @@ export default function Navigation() {
     >
       <div className="container">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-            className="group"
-            aria-label="ZismaAI home"
-          >
+          <Link href="/" className="group" aria-label="ZismaAI home">
             <Logo />
-          </a>
+          </Link>
 
-          {/* Desktop Nav */}
           <nav className="hidden md:flex items-center gap-7">
             {navLinks.map((link) => (
               <button
                 key={link.label}
-                onClick={() => handleNavClick(link.href)}
-                className={`text-sm font-medium transition-colors duration-150 hover:text-[#1B3A6B] ${
-                  scrolled ? "text-[#374151]" : "text-[#374151]"
-                }`}
+                onClick={() => handleNavClick(link.path, link.sectionId)}
+                className="text-sm font-medium text-[#374151] transition-colors duration-150 hover:text-[#1B3A6B]"
               >
                 {link.label}
               </button>
             ))}
           </nav>
 
-          {/* CTA */}
           <div className="hidden md:flex items-center gap-3">
             <button
-              onClick={() => handleNavClick("#contact")}
+              onClick={() => handleNavClick("/contact", "contact")}
               className="px-4 py-2 text-sm font-medium text-white bg-[#1B3A6B] rounded-md hover:bg-[#2D5BA3] transition-colors duration-150"
             >
               Get in Touch
             </button>
           </div>
 
-          {/* Mobile menu toggle */}
           <button
             className="md:hidden p-2 text-[#374151]"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -90,21 +72,20 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Menu */}
       {mobileOpen && (
         <div className="md:hidden bg-white border-t border-[#E5E7EB] shadow-lg">
           <div className="container py-4 flex flex-col gap-1">
             {navLinks.map((link) => (
               <button
                 key={link.label}
-                onClick={() => handleNavClick(link.href)}
+                onClick={() => handleNavClick(link.path, link.sectionId)}
                 className="text-left px-3 py-2.5 text-sm font-medium text-[#374151] hover:text-[#1B3A6B] hover:bg-[#F4F4F2] rounded-md transition-colors"
               >
                 {link.label}
               </button>
             ))}
             <button
-              onClick={() => handleNavClick("#contact")}
+              onClick={() => handleNavClick("/contact", "contact")}
               className="mt-2 px-4 py-2.5 text-sm font-medium text-white bg-[#1B3A6B] rounded-md hover:bg-[#2D5BA3] transition-colors"
             >
               Get in Touch

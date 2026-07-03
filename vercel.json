@@ -3,5 +3,8 @@
   "buildCommand": "pnpm run build:vercel",
   "outputDirectory": "dist/public",
   "framework": "vite",
-  "rewrites": [{ "source": "/((?!assets/).*)", "destination": "/index.html" }]
+  "rewrites": [
+    { "source": "/api/(.*)", "destination": "/api/$1" },
+    { "source": "/((?!api/|assets/).*)", "destination": "/index.html" }
+  ]
 }

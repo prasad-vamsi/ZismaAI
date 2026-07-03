@@ -1,31 +1,23 @@
-/**
- * Footer Component
- * Design: Quiet Authority — professional, minimal
- * Company description, navigation, social links, copyright
- */
 import { Linkedin, Mail } from "lucide-react";
+import { Link, useLocation } from "wouter";
 import Logo from "./Logo";
-
-const navLinks = [
-  { label: "Solutions", href: "#solutions" },
-  { label: "Architecture", href: "#architecture" },
-  { label: "Expertise", href: "#expertise" },
-  { label: "About", href: "#about" },
-  { label: "Insights", href: "#insights" },
-  { label: "Contact", href: "#contact" },
-];
+import { navLinks, scrollToSection } from "@/lib/nav";
 
 export default function Footer() {
-  const handleNavClick = (href: string) => {
-    const el = document.querySelector(href);
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  const [location, setLocation] = useLocation();
+
+  const handleNavClick = (path: string, sectionId: string) => {
+    if (location === path) {
+      scrollToSection(sectionId);
+    } else {
+      setLocation(path);
+    }
   };
 
   return (
     <footer className="bg-[#0F0F0E] text-white">
       <div className="container py-14">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
-          {/* Brand */}
           <div className="md:col-span-5">
             <div className="mb-4">
               <Logo variant="inverted" />
@@ -54,14 +46,13 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Navigation */}
           <div className="md:col-span-3">
             <div className="section-label text-[#4B5563] mb-4">Navigation</div>
             <ul className="space-y-2">
               {navLinks.map((link) => (
                 <li key={link.label}>
                   <button
-                    onClick={() => handleNavClick(link.href)}
+                    onClick={() => handleNavClick(link.path, link.sectionId)}
                     className="text-sm text-[#9CA3AF] hover:text-white transition-colors"
                   >
                     {link.label}
@@ -71,7 +62,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
           <div className="md:col-span-4">
             <div className="section-label text-[#4B5563] mb-4">Contact</div>
             <div className="space-y-2">
@@ -84,17 +74,16 @@ export default function Footer() {
               <p className="text-sm text-[#9CA3AF]">Erie, PA · United States</p>
             </div>
             <div className="mt-6">
-              <button
-                onClick={() => handleNavClick("#contact")}
-                className="px-4 py-2 text-sm font-medium text-white border border-[#374151] rounded-md hover:border-[#6B7280] transition-colors"
+              <Link
+                href="/contact"
+                className="inline-block px-4 py-2 text-sm font-medium text-white border border-[#374151] rounded-md hover:border-[#6B7280] transition-colors"
               >
                 Get in Touch
-              </button>
+              </Link>
             </div>
           </div>
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-6 border-t border-[#1F2937] flex flex-wrap items-center justify-between gap-3">
           <p className="text-xs text-[#4B5563]">
             © {new Date().getFullYear()} ZismaAI Platform Engineering. All rights reserved.

@@ -1,15 +1,14 @@
 /**
- * Contact Section
- * Design: Quiet Authority — professional, simple, elegant
- * Left: contact info. Right: contact form
+ * Contact Section — submits to /api/contact (Web3Forms via Vercel serverless)
  */
 import { useEffect, useRef, useState } from "react";
-import { Mail, Linkedin, MapPin, ArrowRight } from "lucide-react";
+import { Mail, Linkedin, MapPin, ArrowRight, Loader2 } from "lucide-react";
 
 export default function Contact() {
   const sectionRef = useRef<HTMLElement>(null);
   const [form, setForm] = useState({ name: "", email: "", company: "", message: "" });
-  const [submitted, setSubmitted] = useState(false);
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [errorMsg, setErrorMsg] = useState("");
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -25,15 +24,29 @@ export default function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setStatus("loading");
+    setErrorMsg("");
+
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const data = (await res.json()) as { error?: string };
+      if (!res.ok) throw new Error(data.error || "Failed to send message.");
+      setStatus("success");
+    } catch (err) {
+      setStatus("error");
+      setErrorMsg(err instanceof Error ? err.message : "Failed to send message.");
+    }
   };
 
   return (
     <section id="contact" ref={sectionRef} className="py-24 bg-[#FAFAF8]">
       <div className="container">
-        {/* Header */}
         <div className="max-w-2xl mb-16">
           <div className="fade-in-up mb-4">
             <span className="section-label">Contact</span>
@@ -54,11 +67,7 @@ export default function Contact() {
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
-          {/* Left: Contact info */}
-          <div
-            className="fade-in-up lg:col-span-4"
-            style={{ transitionDelay: "180ms" }}
-          >
+          <div className="fade-in-up lg:col-span-4" style={{ transitionDelay: "180ms" }}>
             <div className="space-y-6">
               <div>
                 <div className="section-label mb-2">Email</div>
@@ -89,41 +98,16 @@ export default function Contact() {
                   Erie, PA · United States
                 </div>
               </div>
-              <div className="pt-4 border-t border-[#E5E7EB]">
-                <div className="section-label mb-3">Engagement Types</div>
-                <ul className="space-y-1.5 text-sm text-[#4B5563]">
-                  <li className="flex items-center gap-2">
-                    <div className="w-1 h-1 rounded-full bg-[#1B3A6B]" />
-                    Staff / Principal AI Roles
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1 h-1 rounded-full bg-[#1B3A6B]" />
-                    Consulting Engagements
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1 h-1 rounded-full bg-[#1B3A6B]" />
-                    Speaking Opportunities
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <div className="w-1 h-1 rounded-full bg-[#1B3A6B]" />
-                    Architecture Reviews
-                  </li>
-                </ul>
-              </div>
             </div>
           </div>
 
-          {/* Right: Contact form */}
-          <div
-            className="fade-in-up lg:col-span-8"
-            style={{ transitionDelay: "240ms" }}
-          >
-            {submitted ? (
+          <div className="fade-in-up lg:col-span-8" style={{ transitionDelay: "240ms" }}>
+            {status === "success" ? (
               <div className="bg-white border border-[#E5E7EB] rounded-lg p-10 text-center shadow-[0_1px_3px_rgba(0,0,0,0.05)]">
                 <div className="w-12 h-12 rounded-full bg-[#1B3A6B]/8 flex items-center justify-center mx-auto mb-4">
                   <ArrowRight size={20} className="text-[#1B3A6B]" />
                 </div>
-                <h3 className="font-semibold text-[1rem] text-[#0F0F0E] mb-2">Message Received</h3>
+                <h3 className="font-semibold text-[1rem] text-[#0F0F0E] mb-2">Message Sent</h3>
                 <p className="text-sm text-[#6B7280]">
                   Thank you for reaching out. I'll respond within 24–48 hours.
                 </p>
@@ -133,6 +117,11 @@ export default function Contact() {
                 onSubmit={handleSubmit}
                 className="bg-white border border-[#E5E7EB] rounded-lg p-8 shadow-[0_1px_3px_rgba(0,0,0,0.05)] space-y-5"
               >
+                {status === "error" && (
+                  <p className="text-sm text-red-600 bg-red-50 border border-red-100 rounded-md px-3 py-2">
+                    {errorMsg}
+                  </p>
+                )}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
                     <label className="section-label block mb-1.5">Name</label>
@@ -180,10 +169,20 @@ export default function Contact() {
                 </div>
                 <button
                   type="submit"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-[#1B3A6B] rounded-md hover:bg-[#2D5BA3] transition-colors duration-150 active:scale-[0.97]"
+                  disabled={status === "loading"}
+                  className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium text-white bg-[#1B3A6B] rounded-md hover:bg-[#2D5BA3] transition-colors duration-150 active:scale-[0.97] disabled:opacity-60"
                 >
-                  Send Message
-                  <ArrowRight size={15} />
+                  {status === "loading" ? (
+                    <>
+                      <Loader2 size={15} className="animate-spin" />
+                      Sending...
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <ArrowRight size={15} />
+                    </>
+                  )}
                 </button>
               </form>
             )}

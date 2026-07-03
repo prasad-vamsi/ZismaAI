@@ -1,0 +1,23 @@
+<svg viewBox="0 0 800 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="420" fill="#FAFAF8"/>
+  <text x="40" y="36" fill="#6B7280" font-family="Inter,sans-serif" font-size="13" font-weight="600">ENTERPRISE AI PLATFORM  LAYERED ARCHITECTURE</text>
+  <rect x="40" y="56" width="720" height="72" rx="8" fill="#FFFFFF" stroke="#1B3A6B" stroke-width="2"/>
+  <text x="60" y="88" fill="#1B3A6B" font-family="Inter,sans-serif" font-size="14" font-weight="600">Experience Layer</text>
+  <text x="60" y="110" fill="#6B7280" font-family="Inter,sans-serif" font-size="12">APIs · Notebooks · Agent Interfaces · Developer Portal</text>
+  <rect x="200" y="72" width="100" height="36" rx="4" fill="#EEF2F8" stroke="#2D5BA3"/><text x="220" y="95" fill="#1B3A6B" font-size="11" font-family="Inter,sans-serif">REST/gRPC</text>
+  <rect x="320" y="72" width="100" height="36" rx="4" fill="#EEF2F8" stroke="#2D5BA3"/><text x="345" y="95" fill="#1B3A6B" font-size="11" font-family="Inter,sans-serif">Agents</text>
+  <rect x="440" y="72" width="100" height="36" rx="4" fill="#EEF2F8" stroke="#2D5BA3"/><text x="455" y="95" fill="#1B3A6B" font-size="11" font-family="Inter,sans-serif">Notebooks</text>
+  <path d="M400 128v24" stroke="#1B3A6B" stroke-width="2" marker-end="url(#a)"/>
+  <rect x="40" y="152" width="720" height="88" rx="8" fill="#FFFFFF" stroke="#1B3A6B" stroke-width="2"/>
+  <text x="60" y="184" fill="#1B3A6B" font-family="Inter,sans-serif" font-size="14" font-weight="600">Platform Layer  Control Plane</text>
+  <rect x="60" y="196" width="130" height="32" rx="4" fill="#1B3A6B" fill-opacity="0.08" stroke="#1B3A6B"/><text x="78" y="217" fill="#1B3A6B" font-size="11" font-family="Inter,sans-serif">Model Registry</text>
+  <rect x="210" y="196" width="130" height="32" rx="4" fill="#1B3A6B" fill-opacity="0.08" stroke="#1B3A6B"/><text x="232" y="217" fill="#1B3A6B" font-size="11" font-family="Inter,sans-serif">Feature Store</text>
+  <rect x="360" y="196" width="130" height="32" rx="4" fill="#1B3A6B" fill-opacity="0.08" stroke="#1B3A6B"/><text x="372" y="217" fill="#1B3A6B" font-size="11" font-family="Inter,sans-serif">Inference GW</text>
+  <rect x="510" y="196" width="130" height="32" rx="4" fill="#1B3A6B" fill-opacity="0.08" stroke="#1B3A6B"/><text x="530" y="217" fill="#1B3A6B" font-size="11" font-family="Inter,sans-serif">MLOps CI/CD</text>
+  <path d="M400 240v24" stroke="#1B3A6B" stroke-width="2"/>
+  <rect x="40" y="264" width="720" height="72" rx="8" fill="#FFFFFF" stroke="#374151" stroke-width="1.5"/>
+  <text x="60" y="296" fill="#374151" font-family="Inter,sans-serif" font-size="14" font-weight="600">Infrastructure Layer</text>
+  <text x="60" y="318" fill="#6B7280" font-family="Inter,sans-serif" font-size="12">Kubernetes · GPU Pools · Object Storage · IAM · Observability · Data Lake</text>
+  <rect x="40" y="352" width="720" height="48" rx="6" fill="#0F0F0E" fill-opacity="0.04" stroke="#E5E7EB"/>
+  <text x="60" y="382" fill="#6B7280" font-family="JetBrains Mono,monospace" font-size="11">Shared: Identity · Policy-as-Code · Cost Attribution · Audit Logs</text>
+</svg>

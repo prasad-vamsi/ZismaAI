@@ -1,0 +1,18 @@
+<svg viewBox="0 0 800 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="800" height="420" fill="#FAFAF8"/>
+  <text x="40" y="36" fill="#065F46" font-family="Inter,sans-serif" font-size="13" font-weight="600">LLM INFERENCE  REQUEST ROUTING &amp; AUTOSCALING</text>
+  <rect x="40" y="60" width="140" height="48" rx="6" fill="#FFFFFF" stroke="#065F46" stroke-width="2"/><text x="72" y="90" fill="#065F46" font-size="12" font-family="Inter,sans-serif" font-weight="600">Clients</text>
+  <path d="M180 84h60" stroke="#065F46" stroke-width="2"/><polygon points="240,84 232,80 232,88" fill="#065F46"/>
+  <rect x="250" y="60" width="160" height="48" rx="6" fill="#065F46" fill-opacity="0.1" stroke="#065F46" stroke-width="2"/><text x="278" y="90" fill="#065F46" font-size="12" font-family="Inter,sans-serif" font-weight="600">API Gateway</text>
+  <path d="M410 84h40" stroke="#065F46" stroke-width="2"/>
+  <rect x="460" y="48" width="140" height="72" rx="6" fill="#FFFFFF" stroke="#1B3A6B" stroke-width="2"/><text x="488" y="78" fill="#1B3A6B" font-size="11" font-family="Inter,sans-serif" font-weight="600">Router</text><text x="478" y="100" fill="#6B7280" font-size="10" font-family="Inter,sans-serif">Load · Cache</text>
+  <path d="M530 120v40" stroke="#1B3A6B" stroke-width="2"/><path d="M380 120v40" stroke="#1B3A6B" stroke-width="2"/>
+  <rect x="300" y="160" width="180" height="64" rx="6" fill="#EEF2F8" stroke="#1B3A6B" stroke-width="2"/><text x="330" y="188" fill="#1B3A6B" font-size="12" font-family="Inter,sans-serif" font-weight="600">Prefill Pool</text><text x="318" y="208" fill="#6B7280" font-size="10" font-family="Inter,sans-serif">vLLM · TensorRT-LLM</text>
+  <rect x="520" y="160" width="180" height="64" rx="6" fill="#EEF2F8" stroke="#1B3A6B" stroke-width="2"/><text x="548" y="188" fill="#1B3A6B" font-size="12" font-family="Inter,sans-serif" font-weight="600">Decode Pool</text><text x="536" y="208" fill="#6B7280" font-size="10" font-family="Inter,sans-serif">Continuous Batching</text>
+  <rect x="40" y="260" width="720" height="120" rx="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.5"/>
+  <text x="60" y="288" fill="#374151" font-size="12" font-family="Inter,sans-serif" font-weight="600">GPU Node Pool (HPA)</text>
+  <rect x="60" y="300" width="100" height="56" rx="4" fill="#065F46" fill-opacity="0.12" stroke="#065F46"/><text x="82" y="334" fill="#065F46" font-size="10" font-family="JetBrains Mono,monospace">GPU-1</text>
+  <rect x="180" y="300" width="100" height="56" rx="4" fill="#065F46" fill-opacity="0.12" stroke="#065F46"/><text x="202" y="334" fill="#065F46" font-size="10" font-family="JetBrains Mono,monospace">GPU-2</text>
+  <rect x="300" y="300" width="100" height="56" rx="4" fill="#065F46" fill-opacity="0.12" stroke="#065F46"/><text x="322" y="334" fill="#065F46" font-size="10" font-family="JetBrains Mono,monospace">GPU-N</text>
+  <text x="440" y="334" fill="#6B7280" font-size="11" font-family="Inter,sans-serif">Metrics: queue_depth · p99_latency · GPU_util</text>
+</svg>
