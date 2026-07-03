@@ -35,7 +35,7 @@ export default function About() {
             <div className="relative">
               <div className="aspect-[3/4] rounded-lg overflow-hidden bg-[#E5E7EB] shadow-[0_4px_16px_rgba(27,58,107,0.10)]">
                 <img
-                  src="/manus-storage/about-portrait-placeholder_f3e383fe.png"
+                  src="/images/about-portrait.svg"
                   alt="Vamsi Prasad — Founder"
                   className="w-full h-full object-cover"
                 />

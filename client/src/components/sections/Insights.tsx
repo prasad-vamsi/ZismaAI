@@ -13,7 +13,7 @@ const posts = [
     excerpt:
       "The architectural decisions that separate enterprise AI platforms from prototype tooling — and why most organizations get it wrong.",
     readTime: "8 min read",
-    image: "/manus-storage/insights-ai-platforms_3f394908.png",
+    image: "/images/insight-placeholder.svg",
     featured: true,
   },
   {
@@ -22,7 +22,7 @@ const posts = [
     excerpt:
       "How to architect GPU-optimized inference infrastructure using vLLM, TensorRT, and Kubernetes autoscaling without breaking the budget.",
     readTime: "12 min read",
-    image: "/manus-storage/insights-llm-inference_02c6b4c4.png",
+    image: "/images/insight-placeholder.svg",
     featured: false,
   },
   {
@@ -31,7 +31,7 @@ const posts = [
     excerpt:
       "What actually breaks when you deploy multi-agent systems at enterprise scale — and the architectural patterns that make them reliable.",
     readTime: "10 min read",
-    image: "/manus-storage/insights-agentic-ai_f62e0e9e.png",
+    image: "/images/insight-placeholder.svg",
     featured: false,
   },
   {
@@ -40,7 +40,7 @@ const posts = [
     excerpt:
       "A production-tested framework for RAG evaluation, retrieval optimization, and governance that goes beyond basic vector search.",
     readTime: "9 min read",
-    image: "/manus-storage/insights-rag_3ce47d22.png",
+    image: "/images/insight-placeholder.svg",
     featured: false,
   },
   {
@@ -49,7 +49,7 @@ const posts = [
     excerpt:
       "Practical techniques for reducing GPU inference costs: quantization, dynamic batching, model compression, and efficient scheduling.",
     readTime: "7 min read",
-    image: "/manus-storage/insights-gpu_c5a079e1.png",
+    image: "/images/insight-placeholder.svg",
     featured: false,
   },
   {
@@ -58,7 +58,7 @@ const posts = [
     excerpt:
       "Why investing in reusable AI platform services accelerates every ML team — and how to build them without slowing anyone down.",
     readTime: "6 min read",
-    image: "/manus-storage/insights-mlops_b72a9ebe.png",
+    image: "/images/insight-placeholder.svg",
     featured: false,
   },
 ];

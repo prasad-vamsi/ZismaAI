@@ -5,6 +5,7 @@
  */
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 
 const navLinks = [
   { label: "Solutions", href: "#solutions" },
@@ -47,20 +48,10 @@ export default function Navigation() {
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }}
-            className="flex items-center gap-2.5 group"
+            className="group"
+            aria-label="ZismaAI home"
           >
-            <img
-              src="/manus-storage/logo-mark_463bf5e5.png"
-              alt="Vamsi AI Platform"
-              className="h-8 w-8 object-contain"
-            />
-            <span
-              className={`font-semibold text-[15px] tracking-tight transition-colors duration-200 ${
-                scrolled ? "text-[#0F0F0E]" : "text-[#0F0F0E]"
-              }`}
-            >
-              Vamsi<span className="text-[#1B3A6B]">AI</span>
-            </span>
+            <Logo />
           </a>
 
           {/* Desktop Nav */}

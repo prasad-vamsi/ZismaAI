@@ -4,6 +4,7 @@
  * Company description, navigation, social links, copyright
  */
 import { Linkedin, Mail } from "lucide-react";
+import Logo from "./Logo";
 
 const navLinks = [
   { label: "Solutions", href: "#solutions" },
@@ -26,15 +27,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 mb-12">
           {/* Brand */}
           <div className="md:col-span-5">
-            <div className="flex items-center gap-2.5 mb-4">
-              <img
-                src="/manus-storage/logo-mark_463bf5e5.png"
-                alt="Vamsi AI Platform"
-                className="h-7 w-7 object-contain brightness-0 invert"
-              />
-              <span className="font-semibold text-[15px] tracking-tight">
-                Vamsi<span className="text-[#6B8FD4]">AI</span>
-              </span>
+            <div className="mb-4">
+              <Logo variant="inverted" />
             </div>
             <p className="text-sm text-[#9CA3AF] leading-relaxed max-w-[320px]">
               Enterprise AI platform engineering — designing and building the infrastructure
@@ -103,7 +97,7 @@ export default function Footer() {
         {/* Bottom bar */}
         <div className="pt-6 border-t border-[#1F2937] flex flex-wrap items-center justify-between gap-3">
           <p className="text-xs text-[#4B5563]">
-            © {new Date().getFullYear()} Vamsi AI Platform Engineering. All rights reserved.
+            © {new Date().getFullYear()} ZismaAI Platform Engineering. All rights reserved.
           </p>
           <p className="text-xs text-[#4B5563]">
             Enterprise AI · MLOps · LLMOps · Agentic AI · Distributed Inference

@@ -1,0 +1,8 @@
+<svg viewBox="0 0 400 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="480" rx="16" fill="#EEF2F8"/>
+  <rect x="24" y="24" width="352" height="432" rx="12" fill="#1B3A6B" fill-opacity="0.06"/>
+  <circle cx="200" cy="180" r="72" fill="#1B3A6B" fill-opacity="0.12"/>
+  <circle cx="200" cy="160" r="48" fill="#2D5BA3" fill-opacity="0.25"/>
+  <path d="M96 380c24-56 64-84 104-84s80 28 104 84" stroke="#1B3A6B" stroke-opacity="0.2" stroke-width="3" fill="#1B3A6B" fill-opacity="0.08"/>
+  <text x="200" y="440" text-anchor="middle" fill="#6B7280" font-family="Inter, sans-serif" font-size="14" font-weight="500">Founder</text>
+</svg>

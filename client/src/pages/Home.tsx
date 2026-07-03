@@ -1,6 +1,6 @@
 /**
  * Home Page
- * Assembles all sections for the Vamsi AI Platform Engineering website
+ * Assembles all sections for the ZismaAI Platform Engineering website
  * Design: Quiet Authority — enterprise AI consulting, not personal portfolio
  */
 import Navigation from "@/components/Navigation";

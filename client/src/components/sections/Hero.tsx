@@ -122,7 +122,7 @@ export default function Hero() {
               {/* Decorative background shape */}
               <div className="absolute inset-0 -m-6 bg-[#1B3A6B]/[0.03] rounded-2xl" />
               <img
-                src="/manus-storage/hero-illustration_f19d7cd1.png"
+                src="/images/hero-illustration.svg"
                 alt="Enterprise AI Infrastructure Architecture"
                 className="relative w-full h-auto rounded-xl shadow-[0_4px_24px_rgba(27,58,107,0.10)]"
               />
