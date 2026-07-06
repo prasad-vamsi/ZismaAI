@@ -90,7 +90,7 @@ export default function About() {
               style={{ transitionDelay: "180ms" }}
             >
               <p>
-                Vamsi Prasad is a Lead AI Platform Engineer with over six years of experience
+                Vamsi Prasad is a Lead AI Platform Engineer with over eight years of experience
                 designing and building enterprise AI infrastructure across AWS and Google Cloud.
                 His work sits at the intersection of platform engineering and applied AI — where
                 research prototypes become reliable production systems.
